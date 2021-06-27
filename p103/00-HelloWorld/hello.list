@@ -5,7 +5,7 @@ hello.elf:     file format elf32-littlearm
 Disassembly of section .text:
 
 00000000 <isr_vectors>:
-   0:	00 00 00 00 a9 00 00 00                             ........
+   0:	00 00 00 00 b1 00 00 00                             ........
 
 00000008 <puts>:
    8:	b480      	push	{r7}
@@ -41,44 +41,46 @@ Disassembly of section .text:
 00000048 <main>:
   48:	b580      	push	{r7, lr}
   4a:	af00      	add	r7, sp, #0
-  4c:	4b10      	ldr	r3, [pc, #64]	; (90 <main+0x48>)
+  4c:	4b11      	ldr	r3, [pc, #68]	; (94 <main+0x4c>)
   4e:	681b      	ldr	r3, [r3, #0]
-  50:	4a0f      	ldr	r2, [pc, #60]	; (90 <main+0x48>)
+  50:	4a10      	ldr	r2, [pc, #64]	; (94 <main+0x4c>)
   52:	f043 0305 	orr.w	r3, r3, #5
   56:	6013      	str	r3, [r2, #0]
-  58:	4b0e      	ldr	r3, [pc, #56]	; (94 <main+0x4c>)
+  58:	4b0f      	ldr	r3, [pc, #60]	; (98 <main+0x50>)
   5a:	681b      	ldr	r3, [r3, #0]
-  5c:	4a0d      	ldr	r2, [pc, #52]	; (94 <main+0x4c>)
+  5c:	4a0e      	ldr	r2, [pc, #56]	; (98 <main+0x50>)
   5e:	f443 3300 	orr.w	r3, r3, #131072	; 0x20000
   62:	6013      	str	r3, [r2, #0]
-  64:	4b0c      	ldr	r3, [pc, #48]	; (98 <main+0x50>)
+  64:	4b0d      	ldr	r3, [pc, #52]	; (9c <main+0x54>)
   66:	f44f 4296 	mov.w	r2, #19200	; 0x4b00
   6a:	601a      	str	r2, [r3, #0]
-  6c:	4b0b      	ldr	r3, [pc, #44]	; (9c <main+0x54>)
+  6c:	4b0c      	ldr	r3, [pc, #48]	; (a0 <main+0x58>)
   6e:	f04f 3244 	mov.w	r2, #1145324612	; 0x44444444
   72:	601a      	str	r2, [r3, #0]
-  74:	4b0a      	ldr	r3, [pc, #40]	; (a0 <main+0x58>)
+  74:	4b0b      	ldr	r3, [pc, #44]	; (a4 <main+0x5c>)
   76:	220c      	movs	r2, #12
   78:	601a      	str	r2, [r3, #0]
-  7a:	4b09      	ldr	r3, [pc, #36]	; (a0 <main+0x58>)
+  7a:	4b0a      	ldr	r3, [pc, #40]	; (a4 <main+0x5c>)
   7c:	681b      	ldr	r3, [r3, #0]
-  7e:	4a08      	ldr	r2, [pc, #32]	; (a0 <main+0x58>)
+  7e:	4a09      	ldr	r2, [pc, #36]	; (a4 <main+0x5c>)
   80:	f443 5300 	orr.w	r3, r3, #8192	; 0x2000
   84:	6013      	str	r3, [r2, #0]
-  86:	4807      	ldr	r0, [pc, #28]	; (a4 <main+0x5c>)
+  86:	4808      	ldr	r0, [pc, #32]	; (a8 <main+0x60>)
   88:	f7ff ffbe 	bl	8 <puts>
-  8c:	e7fe      	b.n	8c <main+0x44>
-  8e:	bf00      	nop
-  90:	40021018 	.word	0x40021018
-  94:	4002101c 	.word	0x4002101c
-  98:	40010800 	.word	0x40010800
-  9c:	40010804 	.word	0x40010804
-  a0:	4000440c 	.word	0x4000440c
-  a4:	000000b4 	.word	0x000000b4
+  8c:	4807      	ldr	r0, [pc, #28]	; (ac <main+0x64>)
+  8e:	f7ff ffbb 	bl	8 <puts>
+  92:	e7fb      	b.n	8c <main+0x44>
+  94:	40021018 	.word	0x40021018
+  98:	4002101c 	.word	0x4002101c
+  9c:	40010800 	.word	0x40010800
+  a0:	40010804 	.word	0x40010804
+  a4:	4000440c 	.word	0x4000440c
+  a8:	000000bc 	.word	0x000000bc
+  ac:	000000cc 	.word	0x000000cc
 
-000000a8 <reset_handler>:
-  a8:	b580      	push	{r7, lr}
-  aa:	af00      	add	r7, sp, #0
-  ac:	f7ff ffcc 	bl	48 <main>
-  b0:	bf00      	nop
-  b2:	bd80      	pop	{r7, pc}
+000000b0 <reset_handler>:
+  b0:	b580      	push	{r7, lr}
+  b2:	af00      	add	r7, sp, #0
+  b4:	f7ff ffc8 	bl	48 <main>
+  b8:	bf00      	nop
+  ba:	bd80      	pop	{r7, pc}
