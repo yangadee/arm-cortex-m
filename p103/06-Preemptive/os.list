@@ -73,9 +73,9 @@ void usart_init(void) {
  8000094:	4a0c      	ldr	r2, [pc, #48]	; (80000c8 <usart_init+0x88>)
  8000096:	f443 5300 	orr.w	r3, r3, #8192	; 0x2000
  800009a:	6013      	str	r3, [r2, #0]
-  *(USART2_BRR) = 72000000L / (115200L);
+  *(USART2_BRR) = 36000000L / 115200L;
  800009c:	4b0d      	ldr	r3, [pc, #52]	; (80000d4 <usart_init+0x94>)
- 800009e:	f240 2271 	movw	r2, #625	; 0x271
+ 800009e:	f44f 729c 	mov.w	r2, #312	; 0x138
  80000a2:	601a      	str	r2, [r3, #0]
 }
  80000a4:	bf00      	nop
