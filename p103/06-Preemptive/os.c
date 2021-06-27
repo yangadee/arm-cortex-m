@@ -36,7 +36,7 @@ void usart_init(void) {
   *(USART2_CR2) = 0x00000000;
   *(USART2_CR3) = 0x00000000;
   *(USART2_CR1) |= 0x2000;
-  *(USART2_BRR) = 36000000L / 115200L;
+  *(USART2_BRR) = 0x18;
 }
 
 void print_str(const char *str) {

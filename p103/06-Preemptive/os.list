@@ -73,15 +73,16 @@ void usart_init(void) {
  8000094:	4a0c      	ldr	r2, [pc, #48]	; (80000c8 <usart_init+0x88>)
  8000096:	f443 5300 	orr.w	r3, r3, #8192	; 0x2000
  800009a:	6013      	str	r3, [r2, #0]
-  *(USART2_BRR) = 36000000L / 115200L;
+  *(USART2_BRR) = 0x18;
  800009c:	4b0d      	ldr	r3, [pc, #52]	; (80000d4 <usart_init+0x94>)
- 800009e:	f44f 729c 	mov.w	r2, #312	; 0x138
- 80000a2:	601a      	str	r2, [r3, #0]
+ 800009e:	2218      	movs	r2, #24
+ 80000a0:	601a      	str	r2, [r3, #0]
 }
- 80000a4:	bf00      	nop
- 80000a6:	46bd      	mov	sp, r7
- 80000a8:	bc80      	pop	{r7}
- 80000aa:	4770      	bx	lr
+ 80000a2:	bf00      	nop
+ 80000a4:	46bd      	mov	sp, r7
+ 80000a6:	bc80      	pop	{r7}
+ 80000a8:	4770      	bx	lr
+ 80000aa:	bf00      	nop
  80000ac:	40021018 	.word	0x40021018
  80000b0:	4002101c 	.word	0x4002101c
  80000b4:	40010800 	.word	0x40010800
