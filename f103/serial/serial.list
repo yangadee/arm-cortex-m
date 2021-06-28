@@ -1,0 +1,59 @@
+
+serial.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	4b19      	ldr	r3, [pc, #100]	; (6c <main+0x6c>)
+   8:	681b      	ldr	r3, [r3, #0]
+   a:	4a18      	ldr	r2, [pc, #96]	; (6c <main+0x6c>)
+   c:	f043 0305 	orr.w	r3, r3, #5
+  10:	6013      	str	r3, [r2, #0]
+  12:	4b17      	ldr	r3, [pc, #92]	; (70 <main+0x70>)
+  14:	681b      	ldr	r3, [r3, #0]
+  16:	4a16      	ldr	r2, [pc, #88]	; (70 <main+0x70>)
+  18:	f043 03b0 	orr.w	r3, r3, #176	; 0xb0
+  1c:	6013      	str	r3, [r2, #0]
+  1e:	4b14      	ldr	r3, [pc, #80]	; (70 <main+0x70>)
+  20:	681b      	ldr	r3, [r3, #0]
+  22:	4a13      	ldr	r2, [pc, #76]	; (70 <main+0x70>)
+  24:	f023 0340 	bic.w	r3, r3, #64	; 0x40
+  28:	6013      	str	r3, [r2, #0]
+  2a:	4b12      	ldr	r3, [pc, #72]	; (74 <main+0x74>)
+  2c:	f641 524c 	movw	r2, #7500	; 0x1d4c
+  30:	601a      	str	r2, [r3, #0]
+  32:	4b11      	ldr	r3, [pc, #68]	; (78 <main+0x78>)
+  34:	681b      	ldr	r3, [r3, #0]
+  36:	4a10      	ldr	r2, [pc, #64]	; (78 <main+0x78>)
+  38:	f443 5300 	orr.w	r3, r3, #8192	; 0x2000
+  3c:	f043 030c 	orr.w	r3, r3, #12
+  40:	6013      	str	r3, [r2, #0]
+  42:	4b0e      	ldr	r3, [pc, #56]	; (7c <main+0x7c>)
+  44:	681b      	ldr	r3, [r3, #0]
+  46:	f003 0320 	and.w	r3, r3, #32
+  4a:	2b00      	cmp	r3, #0
+  4c:	d0f9      	beq.n	42 <main+0x42>
+  4e:	4b0c      	ldr	r3, [pc, #48]	; (80 <main+0x80>)
+  50:	681b      	ldr	r3, [r3, #0]
+  52:	71fb      	strb	r3, [r7, #7]
+  54:	4a0a      	ldr	r2, [pc, #40]	; (80 <main+0x80>)
+  56:	79fb      	ldrb	r3, [r7, #7]
+  58:	6013      	str	r3, [r2, #0]
+  5a:	bf00      	nop
+  5c:	4b07      	ldr	r3, [pc, #28]	; (7c <main+0x7c>)
+  5e:	681b      	ldr	r3, [r3, #0]
+  60:	f003 0340 	and.w	r3, r3, #64	; 0x40
+  64:	2b00      	cmp	r3, #0
+  66:	d0f9      	beq.n	5c <main+0x5c>
+  68:	e7eb      	b.n	42 <main+0x42>
+  6a:	bf00      	nop
+  6c:	40021018 	.word	0x40021018
+  70:	40010804 	.word	0x40010804
+  74:	40013808 	.word	0x40013808
+  78:	4001380c 	.word	0x4001380c
+  7c:	40013800 	.word	0x40013800
+  80:	40013804 	.word	0x40013804
