@@ -5,9 +5,9 @@
 
 int puts(const char *str) {
   while (*str) {
-    while (!(*(USART2_SR)&USART_FLAG_TXE))
+    while (!(*(USART1_SR)&USART_FLAG_TXE))
       ;
-    *(USART2_DR) = *str++ & 0xFF;
+    *(USART1_DR) = *str++ & 0xFF;
   }
   return 0;
 }
@@ -20,12 +20,15 @@ void main(void) {
   // USART2 config PA2 & PA3 for default, if let AF remap reg
   // default(AFIO_MAPR).
   /* USART2 Configuration */
-  *(GPIOA_CRL) = 0x00004B00;
-  *(GPIOA_CRH) = 0x44444444;
+  *(GPIOA_CRH) |= 0x00000030 | 0x00000080;
+  *(GPIOA_CRH) &= ~(0x00000040);
+  // *(GPIOA_CRL) = 0x00004B00;
+  // *(GPIOA_CRH) = 0x44444444;
 
-  *(USART2_CR1) = 0x0000000C;
-  *(USART2_CR1) |= 0x2000;
-
+  // *(USART2_CR1) = 0x0000000C;
+  // *(USART2_CR1) |= 0x2000;
+  *(USART1_CR1) = 0x0004 | 0x0008 | 0x2000;
+  *(USART1_BRR) = 0x1D4C; // for 72MHZ on APB2 bus
   puts("Hello World!\n");
 
   while (1) {

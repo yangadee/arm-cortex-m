@@ -21,4 +21,11 @@
 #define USART2_BRR ((__REG)(USART2 + 0x08))
 #define USART2_CR1 ((__REG)(USART2 + 0x0C))
 
+/*USART1 register map*/
+#define USART1 ((__REG_TYPE)0x40013800)
+#define USART1_SR ((__REG)(USART1 + 0x00))
+#define USART1_DR ((__REG)(USART1 + 0x04))
+#define USART1_BRR ((__REG)(USART1 + 0x08))
+#define USART1_CR1 ((__REG)(USART1 + 0x0C))
+
 #endif
