@@ -7,7 +7,7 @@ CFLAGS = -fno-common -O0 \
 TARGET = serial.bin
 all: $(TARGET)
 
-$(TARGET): serial.c serial.c
+$(TARGET): serial.c startup.c
 	$(CC) $(CFLAGS) $^ -o serial.elf
 	$(CROSS_COMPILE)objcopy -Obinary serial.elf serial.bin
 	$(CROSS_COMPILE)objdump -S serial.elf > serial.list
